@@ -13,9 +13,7 @@ class ViewController : UITabBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //탭바생성
-        
-        
+        //탭바생
         let userNav = generateNavController(vc: UserViewController(), title: "친구목록", image : UIImage(named: "user.png")!)
         let meetingListNav = generateNavController(vc: MeetingListViewController(), title: "약속목록", image:UIImage(named: "list.png")!)
         let alarmNav = generateNavController(vc: AlarmViewController(), title: "알림", image: UIImage(named: "list.png")!)
