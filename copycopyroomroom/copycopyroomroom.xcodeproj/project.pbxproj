@@ -18,6 +18,7 @@
 		CC31B625241A0C9F00D9EF55 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC31B624241A0C9F00D9EF55 /* OtherViewController.swift */; };
 		CC31B627241A2EA000D9EF55 /* MakeMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC31B626241A2EA000D9EF55 /* MakeMeetingViewController.swift */; };
 		CC569CDA241F584A00B62854 /* FindUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC569CD9241F584A00B62854 /* FindUserViewController.swift */; };
+		CC58EF4D2463E9C300ED651C /* color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC58EF4C2463E9C300ED651C /* color.xcassets */; };
 		CC7351E8244311F000751EF2 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7351E7244311F000751EF2 /* AlarmViewController.swift */; };
 		CC9BB1FE243091A900FEBAE5 /* MeetingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9BB1FD243091A900FEBAE5 /* MeetingTableViewCell.swift */; };
 		CC9BB200243093B300FEBAE5 /* MeetingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9BB1FF243093B300FEBAE5 /* MeetingInfo.swift */; };
@@ -46,6 +47,7 @@
 		CC31B624241A0C9F00D9EF55 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		CC31B626241A2EA000D9EF55 /* MakeMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeMeetingViewController.swift; sourceTree = "<group>"; };
 		CC569CD9241F584A00B62854 /* FindUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUserViewController.swift; sourceTree = "<group>"; };
+		CC58EF4C2463E9C300ED651C /* color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = color.xcassets; sourceTree = "<group>"; };
 		CC7351E7244311F000751EF2 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		CC9BB1FD243091A900FEBAE5 /* MeetingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTableViewCell.swift; sourceTree = "<group>"; };
 		CC9BB1FF243093B300FEBAE5 /* MeetingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingInfo.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				CC31B60C2419B95000D9EF55 /* SceneDelegate.swift */,
 				CC31B60E2419B95000D9EF55 /* ContentView.swift */,
 				CC31B6102419B95100D9EF55 /* Assets.xcassets */,
+				CC58EF4C2463E9C300ED651C /* color.xcassets */,
 				CC31B6152419B95100D9EF55 /* LaunchScreen.storyboard */,
 				CC31B6182419B95100D9EF55 /* Info.plist */,
 				CCA5437A242A0B850065EEC0 /* user.png */,
@@ -289,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC9BB2012430981900FEBAE5 /* Assets.xcassets in Resources */,
+				CC58EF4D2463E9C300ED651C /* color.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +498,7 @@
 			baseConfigurationReference = D93B74EFBC4A70D2CA7CA6F9 /* Pods-copycopyroomroom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"copycopyroomroom/Preview Content\"";
 				DEVELOPMENT_TEAM = DH7PS64634;
@@ -506,6 +511,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.copycopyroomroom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -516,6 +522,7 @@
 			baseConfigurationReference = 5675D355A9F8B9A8B675E0C8 /* Pods-copycopyroomroom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"copycopyroomroom/Preview Content\"";
 				DEVELOPMENT_TEAM = DH7PS64634;
@@ -528,6 +535,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.copycopyroomroom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

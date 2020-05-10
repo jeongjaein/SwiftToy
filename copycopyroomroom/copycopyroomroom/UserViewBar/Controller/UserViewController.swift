@@ -39,6 +39,7 @@ class UserViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         for i in 1...20{
             items.append(UserProfile(name: "USER\(i)", UIImage: UIImage(named: "Image-\(i).png")!))//왜느낌푠지랑, 이미지 이름넣는거 함수짜기
             //없는 이미지파일을 만드려하면 오류가 납니다.Unexpectedly found nil while unwrapping an Optional value: file 라고 

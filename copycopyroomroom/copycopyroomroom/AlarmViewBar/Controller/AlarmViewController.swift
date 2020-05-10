@@ -15,10 +15,9 @@ class AlarmViewController : UIViewController{
     let bodyButton = UIButton()
     
     fileprivate func setUpLabels() {
-        titleLabel.backgroundColor = .white
-        bodyLabel.backgroundColor = .white
         titleLabel.numberOfLines = 0
         titleLabel.text = "Welcome To Company XYZ"
+//        titleLabel.textColor = .black
         titleLabel.font = UIFont(name: "Futura", size: 25)
         bodyLabel.numberOfLines = 0
         bodyLabel.text = "Hello there! Thanks so much for downloading our brand new app and giving us a try."
@@ -34,7 +33,6 @@ class AlarmViewController : UIViewController{
     
     fileprivate func setUpStackView() {
         let stackView = UIStackView(arrangedSubviews:[titleLabel,bodyLabel])
-        
         stackView.axis = .vertical
         stackView.spacing = 8
         view.addSubview(stackView)
@@ -59,7 +57,7 @@ class AlarmViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "test")
         setUpLabels()
         setUpButtons()
         setUpStackView()
@@ -86,6 +84,7 @@ class AlarmViewController : UIViewController{
             }
         }
     }
+    
     @objc fileprivate func okFadeButton(){
         UIView.animate(withDuration: 0.5, delay: 1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
             self.bodyButton.transform = self.bodyButton.transform.translatedBy(x: 100, y: 30)
