@@ -53,7 +53,26 @@ extension appleLoginEx : ASAuthorizationControllerDelegate{
             let userFirstName = appleIDCredential.fullName?.givenName
             let userLastName = appleIDCredential.fullName?.familyName
             let userEmail = appleIDCredential.email
-            print(userIdentifier,userFirstName,userLastName,userEmail)
+            print(userIdentifier,userFirstName as Any,userLastName as Any,userEmail as Any)
+            let appleIDProvider = ASAuthorizationAppleIDProvider()
+            appleIDProvider.getCredentialState(forUserID: userIdentifier) { (credentialState, error) in
+                switch credentialState {
+                case .authorized:
+                    // The Apple ID credential is valid. Show Home UI Here
+                    print("valid")
+                    break
+                case .revoked:
+                    // The Apple ID credential is revoked. Show SignIn UI Here.
+                    print("revoked")
+                    break
+                case .notFound:
+                    // No credential was found. Show SignIn UI Here.
+                    print("no credential")
+                    break
+                default:
+                    break
+                }
+            }
         } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
             print("test333")
             // Sign in using an existing iCloud Keychain credential.
@@ -63,25 +82,9 @@ extension appleLoginEx : ASAuthorizationControllerDelegate{
             //Navigate to other view controller
         }
         
-//        let appleIDProvider = ASAuthorizationAppleIDProvider()
-//        appleIDProvider.getCredentialState(forUserID: userIdentifier) { (credentialState, error) in
-//            switch credentialState {
-//            case .authorized:
-//                // The Apple ID credential is valid. Show Home UI Here
-//                break
-//            case .revoked:
-//                // The Apple ID credential is revoked. Show SignIn UI Here.
-//                break
-//            case .notFound:
-//                // No credential was found. Show SignIn UI Here.
-//                break
-//            default:
-//                break
-//            }
-//        }
     }
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        //handle error
+        print("somethingwrong")
     }
 }
 extension appleLoginEx: ASAuthorizationControllerPresentationContextProviding{
