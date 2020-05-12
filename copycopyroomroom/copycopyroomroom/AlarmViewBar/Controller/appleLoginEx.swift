@@ -30,12 +30,9 @@ class appleLoginEx : UIViewController{
     }
     @objc
     func handleAuthorizationAppleIDButtonPress() {
-        print("test111")
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
-        
-        
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
@@ -53,20 +50,20 @@ extension appleLoginEx : ASAuthorizationControllerDelegate{
             let userFirstName = appleIDCredential.fullName?.givenName
             let userLastName = appleIDCredential.fullName?.familyName
             let userEmail = appleIDCredential.email
-            print(userIdentifier,userFirstName as Any,userLastName as Any,userEmail as Any)
+            print(userIdentifier, userFirstName, userLastName, userEmail)
             let appleIDProvider = ASAuthorizationAppleIDProvider()
             appleIDProvider.getCredentialState(forUserID: userIdentifier) { (credentialState, error) in
                 switch credentialState {
                 case .authorized:
-                    // The Apple ID credential is valid. Show Home UI Here
+                    //이미 자격증명이 되어있음 로그인 건너뛰어도됨
                     print("valid")
                     break
                 case .revoked:
-                    // The Apple ID credential is revoked. Show SignIn UI Here.
+                    //자격증명이 취소되엇다.
                     print("revoked")
                     break
                 case .notFound:
-                    // No credential was found. Show SignIn UI Here.
+                    //로그인 화면으로 이동해줘야됨
                     print("no credential")
                     break
                 default:
