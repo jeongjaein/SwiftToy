@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CC158174246BFB2700CFAB98 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC158172246BFB2700CFAB98 /* CustomTableViewCell.swift */; };
 		CC158175246BFB2700CFAB98 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC158173246BFB2700CFAB98 /* CustomTableViewCell.xib */; };
+		CC15817C246BFE1800CFAB98 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15817B246BFE1800CFAB98 /* Person.swift */; };
 		CC5D0BF5246993E700525B46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D0BF4246993E700525B46 /* AppDelegate.swift */; };
 		CC5D0BF7246993E700525B46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D0BF6246993E700525B46 /* SceneDelegate.swift */; };
 		CC5D0BF9246993E700525B46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D0BF8246993E700525B46 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		CC158172246BFB2700CFAB98 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		CC158173246BFB2700CFAB98 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		CC15817B246BFE1800CFAB98 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		CC5D0BF1246993E700525B46 /* MVVMToy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMToy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC5D0BF4246993E700525B46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC5D0BF6246993E700525B46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC158176246BFD9400CFAB98 /* MVVM1 */ = {
+			isa = PBXGroup;
+			children = (
+				CC158179246BFDEF00CFAB98 /* ViewModel */,
+				CC158178246BFDE800CFAB98 /* Model */,
+				CC158177246BFDDD00CFAB98 /* View */,
+			);
+			path = MVVM1;
+			sourceTree = "<group>";
+		};
+		CC158177246BFDDD00CFAB98 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CCADE2A3246AA7DA00A081F6 /* MVVMEx.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC158178246BFDE800CFAB98 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC15817B246BFE1800CFAB98 /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC158179246BFDEF00CFAB98 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC158172246BFB2700CFAB98 /* CustomTableViewCell.swift */,
+				CC158173246BFB2700CFAB98 /* CustomTableViewCell.xib */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		CC5D0BE8246993E600525B46 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +99,7 @@
 		CC5D0BF3246993E700525B46 /* MVVMToy */ = {
 			isa = PBXGroup;
 			children = (
+				CC158176246BFD9400CFAB98 /* MVVM1 */,
 				CC5D0BF4246993E700525B46 /* AppDelegate.swift */,
 				CC5D0BF6246993E700525B46 /* SceneDelegate.swift */,
 				CC5D0BF8246993E700525B46 /* ViewController.swift */,
@@ -69,9 +107,6 @@
 				CC5D0BFD246993E700525B46 /* Assets.xcassets */,
 				CC5D0BFF246993E700525B46 /* LaunchScreen.storyboard */,
 				CC5D0C02246993E700525B46 /* Info.plist */,
-				CCADE2A3246AA7DA00A081F6 /* MVVMEx.swift */,
-				CC158172246BFB2700CFAB98 /* CustomTableViewCell.swift */,
-				CC158173246BFB2700CFAB98 /* CustomTableViewCell.xib */,
 			);
 			path = MVVMToy;
 			sourceTree = "<group>";
@@ -148,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC15817C246BFE1800CFAB98 /* Person.swift in Sources */,
 				CC5D0BF9246993E700525B46 /* ViewController.swift in Sources */,
 				CC158174246BFB2700CFAB98 /* CustomTableViewCell.swift in Sources */,
 				CC5D0BF5246993E700525B46 /* AppDelegate.swift in Sources */,

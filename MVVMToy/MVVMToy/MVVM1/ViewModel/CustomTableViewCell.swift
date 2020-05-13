@@ -34,3 +34,8 @@ class CustomTableViewCell: UITableViewCell{
     }
 }
 
+struct CellViewModel {
+    let firstName: String
+    let lastName: String
+    let gender: String
+}

@@ -59,17 +59,4 @@ class MVVMEx: UIViewController, UITableViewDataSource, UITableViewDelegate{
     }
 }
 
-struct Person {
-    let firstName: String
-    let lastName: String
-    let gender: String
-    let age: Int
-    let height: Double
-    
-}
 
-struct CellViewModel {
-    let firstName: String
-    let lastName: String
-    let gender: String
-}
