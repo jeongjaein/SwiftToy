@@ -17,6 +17,7 @@ class MVVMEx: UIViewController, UITableViewDataSource, UITableViewDelegate{
     ]
     
     func createTableView() {
+        myTableView.register(CustomTableViewCell.nib(), forCellReuseIdentifier: CustomTableViewCell.cellIdentifier)
         myTableView.delegate = self
         myTableView.dataSource = self
         self.myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
@@ -39,6 +40,7 @@ class MVVMEx: UIViewController, UITableViewDataSource, UITableViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         createTableView()
+        
     }
     //numberofRowsInsection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,10 +48,9 @@ class MVVMEx: UIViewController, UITableViewDataSource, UITableViewDelegate{
     }
     //cellForRowAt
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.cellIdentifier , for: indexPath) as! CustomTableViewCell
         let model = data[indexPath.row]
-        let viewModel = CellViewModel(firstName: model.firstName, lastName: model.lastName, gender: model.gender)
-        cell.textLabel?.text = "\(viewModel.firstName)  \(viewModel.lastName)"
+        cell.configure(with: CellViewModel(firstName: model.firstName, lastName: model.lastName, gender: model.gender) )
         return cell
     }
     //didSelectRowAt
@@ -67,7 +68,7 @@ struct Person {
     
 }
 
-struct  CellViewModel {
+struct CellViewModel {
     let firstName: String
     let lastName: String
     let gender: String

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC158174246BFB2700CFAB98 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC158172246BFB2700CFAB98 /* CustomTableViewCell.swift */; };
+		CC158175246BFB2700CFAB98 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC158173246BFB2700CFAB98 /* CustomTableViewCell.xib */; };
 		CC5D0BF5246993E700525B46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D0BF4246993E700525B46 /* AppDelegate.swift */; };
 		CC5D0BF7246993E700525B46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D0BF6246993E700525B46 /* SceneDelegate.swift */; };
 		CC5D0BF9246993E700525B46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D0BF8246993E700525B46 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC158172246BFB2700CFAB98 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		CC158173246BFB2700CFAB98 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		CC5D0BF1246993E700525B46 /* MVVMToy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMToy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC5D0BF4246993E700525B46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC5D0BF6246993E700525B46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				CC5D0BFF246993E700525B46 /* LaunchScreen.storyboard */,
 				CC5D0C02246993E700525B46 /* Info.plist */,
 				CCADE2A3246AA7DA00A081F6 /* MVVMEx.swift */,
+				CC158172246BFB2700CFAB98 /* CustomTableViewCell.swift */,
+				CC158173246BFB2700CFAB98 /* CustomTableViewCell.xib */,
 			);
 			path = MVVMToy;
 			sourceTree = "<group>";
@@ -130,6 +136,7 @@
 			files = (
 				CC5D0C01246993E700525B46 /* LaunchScreen.storyboard in Resources */,
 				CC5D0BFE246993E700525B46 /* Assets.xcassets in Resources */,
+				CC158175246BFB2700CFAB98 /* CustomTableViewCell.xib in Resources */,
 				CC5D0BFC246993E700525B46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC5D0BF9246993E700525B46 /* ViewController.swift in Sources */,
+				CC158174246BFB2700CFAB98 /* CustomTableViewCell.swift in Sources */,
 				CC5D0BF5246993E700525B46 /* AppDelegate.swift in Sources */,
 				CCADE2A4246AA7DA00A081F6 /* MVVMEx.swift in Sources */,
 				CC5D0BF7246993E700525B46 /* SceneDelegate.swift in Sources */,
