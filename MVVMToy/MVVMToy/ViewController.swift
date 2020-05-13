@@ -12,21 +12,35 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createButton()
+        createMVVMButton()
+        createNotificationButton()
     }
     
-    func createButton() {
+    func createMVVMButton() {
         let mvvmExButton = UIButton()
         mvvmExButton.setTitle("MVVM", for: .normal)
         mvvmExButton.setTitleColor(UIColor.gray, for: .normal)
         mvvmExButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         mvvmExButton.backgroundColor = .white
         self.view.addSubview(mvvmExButton)
-        
-        mvvmExButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        mvvmExButton.addTarget(self, action: #selector(mvvmExbuttonAction), for: .touchUpInside)
     }
-    @objc func buttonAction() {
+    func createNotificationButton() {
+        let notificationButton = UIButton()
+        notificationButton.setTitle("noti", for: .normal)
+        notificationButton.setTitleColor(UIColor.gray, for: .normal)
+        notificationButton.frame = CGRect(x: 0, y: 100, width: 100, height: 100)
+        notificationButton.backgroundColor = .white
+        self.view.addSubview(notificationButton)
+        notificationButton.addTarget(self, action: #selector(notificationButtonAction), for: .touchUpInside)
+    }
+    @objc func mvvmExbuttonAction() {
         let test = MVVMEx()
+        test.modalPresentationStyle = .automatic
+        self.present(test, animated: true, completion: nil)
+    }
+    @objc func notificationButtonAction(){
+        let test = NotificationEx()
         test.modalPresentationStyle = .automatic
         self.present(test, animated: true, completion: nil)
     }
