@@ -27,10 +27,16 @@ class AlarmViewController : UIViewController{
     fileprivate func setUpButtons() {
         titleButton.backgroundColor = .lightGray
         titleButton.setTitle("OK", for: .normal)
+        titleButton.addTarget(self, action: #selector(appleLogin), for: .touchUpInside)
         bodyButton.backgroundColor = .lightGray
         bodyButton.setTitle("OK", for: .normal)
     }
-    
+    @objc func appleLogin(){
+        let appleLoginex = appleLoginEx()
+        appleLoginex.modalPresentationStyle = .automatic
+        self.navigationController?.present(appleLoginex, animated: true, completion: nil)
+        
+    }
     fileprivate func setUpStackView() {
         let stackView = UIStackView(arrangedSubviews:[titleLabel,bodyLabel])
         stackView.axis = .vertical
@@ -71,26 +77,26 @@ class AlarmViewController : UIViewController{
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
             self.titleLabel.transform = CGAffineTransform(translationX: -30, y: 0)
         }) { (_) in
-            
+
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 //                self.titleLabel.alpha = 0
                 self.titleLabel.transform = self.titleLabel.transform.translatedBy(x: 0, y: -150)
-                
+
             }){ (_) in
-                
+
                 UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                     self.bodyLabel.transform = self.bodyLabel.transform.translatedBy(x: 100, y: 30)
                 })
             }
         }
     }
-    
+
     @objc fileprivate func okFadeButton(){
         UIView.animate(withDuration: 0.5, delay: 1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
             self.bodyButton.transform = self.bodyButton.transform.translatedBy(x: 100, y: 30)
 //            self.bodyButton.transform = self.bodyButton.transform.translatedBy(x: -100, y: -30)
         }) { (_) in
-            
+
             UIView.animate(withDuration: 0.5, delay: 1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
                 self.bodyButton.transform = self.bodyButton.transform.translatedBy(x: -100, y: -30)
             })
@@ -101,7 +107,7 @@ class AlarmViewController : UIViewController{
                 self.bodyButton.transform = self.bodyButton.transform.translatedBy(x: 100, y: 30)
     //            self.bodyButton.transform = self.bodyButton.transform.translatedBy(x: -100, y: -30)
             }) { (_) in
-                
+
                 UIView.animate(withDuration: 0.5, delay: 1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
                     self.bodyButton.transform = self.bodyButton.transform.translatedBy(x: -100, y: -30)
                 })

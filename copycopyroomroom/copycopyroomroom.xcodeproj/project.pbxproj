@@ -25,6 +25,7 @@
 		CC9BB2012430981900FEBAE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC31B6102419B95100D9EF55 /* Assets.xcassets */; };
 		CC9F7CD52452044E00234630 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9F7CD42452044E00234630 /* test.swift */; };
 		CCC0BE10242B7A7600F08B4F /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC0BE0F242B7A7600F08B4F /* UserTableViewCell.swift */; };
+		CCC5752E246965C3001368AA /* appleLoginEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5752D246965C3001368AA /* appleLoginEx.swift */; };
 		CCC780EE2436476C0031B2D3 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC780ED2436476C0031B2D3 /* ProfileDetailViewController.swift */; };
 		CCEC20B42459A7E400490201 /* IndicatorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC20B32459A7E400490201 /* IndicatorEx.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,8 @@
 		CC9F7CD42452044E00234630 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		CCA5437A242A0B850065EEC0 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = ../../Icon/user.png; sourceTree = "<group>"; };
 		CCC0BE0F242B7A7600F08B4F /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		CCC5752C24696577001368AA /* copycopyroomroom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = copycopyroomroom.entitlements; sourceTree = "<group>"; };
+		CCC5752D246965C3001368AA /* appleLoginEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appleLoginEx.swift; sourceTree = "<group>"; };
 		CCC780ED2436476C0031B2D3 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		CCEC20B32459A7E400490201 /* IndicatorEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorEx.swift; sourceTree = "<group>"; };
 		D93B74EFBC4A70D2CA7CA6F9 /* Pods-copycopyroomroom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-copycopyroomroom.debug.xcconfig"; path = "Target Support Files/Pods-copycopyroomroom/Pods-copycopyroomroom.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 		CC31B6092419B95000D9EF55 /* copycopyroomroom */ = {
 			isa = PBXGroup;
 			children = (
+				CCC5752C24696577001368AA /* copycopyroomroom.entitlements */,
 				CC31B61E2419BC4200D9EF55 /* ViewController.swift */,
 				CC31B60A2419B95000D9EF55 /* AppDelegate.swift */,
 				CC6E13F0244B47D2004C1F2C /* UserViewBar */,
@@ -220,6 +224,7 @@
 			children = (
 				CC7351E7244311F000751EF2 /* AlarmViewController.swift */,
 				CC9F7CD42452044E00234630 /* test.swift */,
+				CCC5752D246965C3001368AA /* appleLoginEx.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				CCEC20B42459A7E400490201 /* IndicatorEx.swift in Sources */,
 				CC31B621241A0B0E00D9EF55 /* UserViewController.swift in Sources */,
 				CC31B60D2419B95000D9EF55 /* SceneDelegate.swift in Sources */,
+				CCC5752E246965C3001368AA /* appleLoginEx.swift in Sources */,
 				CC31B61F2419BC4200D9EF55 /* ViewController.swift in Sources */,
 				CC31B60F2419B95000D9EF55 /* ContentView.swift in Sources */,
 			);
@@ -498,6 +504,7 @@
 			baseConfigurationReference = D93B74EFBC4A70D2CA7CA6F9 /* Pods-copycopyroomroom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = copycopyroomroom/copycopyroomroom.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"copycopyroomroom/Preview Content\"";
@@ -522,6 +529,7 @@
 			baseConfigurationReference = 5675D355A9F8B9A8B675E0C8 /* Pods-copycopyroomroom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = copycopyroomroom/copycopyroomroom.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"copycopyroomroom/Preview Content\"";
