@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         createMVVMButton()
         createNotificationButton()
+        createRxSwiftButton()
     }
     
     func createMVVMButton() {
@@ -34,15 +35,29 @@ class ViewController: UIViewController {
         self.view.addSubview(notificationButton)
         notificationButton.addTarget(self, action: #selector(notificationButtonAction), for: .touchUpInside)
     }
+    func createRxSwiftButton() {
+        let RxButton = UIButton()
+        RxButton.setTitle("RxSwift", for: .normal)
+        RxButton.setTitleColor(UIColor.gray, for: .normal)
+        RxButton.frame = CGRect(x: 0, y: 200, width: 100, height: 100)
+        RxButton.backgroundColor = .white
+        self.view.addSubview(RxButton)
+        RxButton.addTarget(self, action: #selector(RxButtonAction), for: .touchUpInside)
+    }
     @objc func mvvmExbuttonAction() {
-        let test = MVVMEx()
-        test.modalPresentationStyle = .automatic
-        self.present(test, animated: true, completion: nil)
+        let mvvmEx = MVVMEx()
+        mvvmEx.modalPresentationStyle = .automatic
+        self.present(mvvmEx, animated: true, completion: nil)
     }
     @objc func notificationButtonAction(){
-        let test = NotificationEx()
-        test.modalPresentationStyle = .automatic
-        self.present(test, animated: true, completion: nil)
+        let notificationEx = NotificationEx()
+        notificationEx.modalPresentationStyle = .automatic
+        self.present(notificationEx, animated: true, completion: nil)
+    }
+    @objc func RxButtonAction(){
+        let  rxSwiftEx = RxSwiftEx()
+        rxSwiftEx.modalPresentationStyle = .automatic
+        self.present(rxSwiftEx, animated: true, completion: nil)
     }
     
 }
