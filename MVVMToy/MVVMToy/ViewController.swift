@@ -15,6 +15,11 @@ class ViewController: UIViewController {
         createMVVMButton()
         createNotificationButton()
         createRxSwiftButton()
+        let rxCocoaExButton = UIButton()
+        rxCocoaExButton.setTitle("RxCocoa", for: .normal)
+        rxCocoaExButton.frame = CGRect(x: 0, y: 300, width: 100, height: 100)
+        view.addSubview(rxCocoaExButton)
+        rxCocoaExButton.addTarget(self, action: #selector(rxCocoaExButtonAction), for: .touchUpInside)
     }
     
     func createMVVMButton() {
@@ -58,6 +63,11 @@ class ViewController: UIViewController {
         let  rxSwiftEx = RxSwiftEx()
         rxSwiftEx.modalPresentationStyle = .automatic
         self.present(rxSwiftEx, animated: true, completion: nil)
+    }
+    @objc func rxCocoaExButtonAction(){
+        let rxCocoaEx = RxCocoaEx()
+        rxCocoaEx.modalPresentationStyle = .automatic
+        self.present(rxCocoaEx, animated: true, completion: nil)
     }
     
 }

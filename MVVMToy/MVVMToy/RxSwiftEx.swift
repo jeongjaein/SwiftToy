@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+
 class RxSwiftEx: UIViewController{
     var justButton = UIButton()
     var fromButton = UIButton()
@@ -86,7 +87,6 @@ class RxSwiftEx: UIViewController{
     }
     @objc func fromButtonAction(){
         Observable.from(["from1","from2","from3"])
-            //            .single() //use single for error test!
             .subscribe{ event in
                 switch event {
                 case .next(let str):
@@ -110,10 +110,12 @@ class RxSwiftEx: UIViewController{
             })
             .disposed(by: disposeBag)
     }
-    @objc func map2ButtonAction(){ 
+    @objc func map2ButtonAction(){
         Observable.just("800x600")
+            .single()
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
             //옵저브온 밑에 친구들은 메인이아닌곳에서 돌아감
+            //qos는 우선순위, background이렇게하면 제일 낮은 뭐 그런느낌??
             .map{ $0.replacingOccurrences(of: "x", with: "/") }
             .map{ "https://picsum.photos/\($0)/?random" }
             .map{ URL(string: $0) }
@@ -121,83 +123,18 @@ class RxSwiftEx: UIViewController{
             .map{ $0! }
             .map{ try Data(contentsOf:  $0) }
             .map{ UIImage(data: $0) }
+//            .subscribeOn(MainScheduler.instance)
+//            이 구문은 오퍼레이터들의 구문이 서브스크라이브를 들어가는 순간 실행 되는 걸로써 아무데나 있어도 됨
+            .do(onNext: {image in
+                print(image?.size)
+            })//do는 어떤 그위의 오퍼레이터들이 실행되는 그 흐름상에서 언젠가한번 실행되는 그런느낌?
             .observeOn(MainScheduler.instance)
             //요밑부터는 메인
             .subscribe(onNext: { image in
-                self.imageView.image = image
-            })
+                self.imageView.image = image//밖에있는 이미지뷰에 하는 작업이여서 sideeffect임
+            }, onError: {err in
+                print(err.localizedDescription)
+            })//에러만 따로 추가한거
             .disposed(by: disposeBag)
     }
 }
-
-
-
-
-
-
-
-
-//override func viewDidLoad(){
-//        super.viewDidLoad()
-//        //        view.backgroundColor = .black
-//
-//
-//        imageView.backgroundColor = .red
-//        view.addSubview(imageView)
-//        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-////        imageView.translatesAutoresizingMaskIntoConstraints = false
-////        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//
-//        countLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 500)
-//
-//        view.addSubview(countLabel)
-//        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true){_ in
-//            self.counter += 1
-//            self.countLabel.text = "\(self.counter)"
-//        }
-//
-//
-//
-//    }
-
-//func onLoadImage(_ sender: Any){
-//        imageView.image = nil
-//        _ = rxswiftLoadImage(from: "https://s2js.com/img/etc/watermelon2.png")
-//            .observeOn(MainScheduler.instance)
-//            .subscribe({ result in
-//                switch result {
-//                case let .next(image):
-//                    self.imageView.image = image
-//                case let .error(err):
-//                    print(err.localizedDescription)
-//                case .completed:
-//                    break
-//                }
-//            })
-//    }
-//
-//    func rxswiftLoadImage(from imageUrl: String) -> Observable<UIImage?>{
-//        return Observable.create { seal in
-//            self.asyncLoadImage(from: imageUrl){ image in
-//                seal.onNext(image)
-//                seal.onCompleted()
-//            }
-//            return Disposables.create()
-//        }
-//    }
-//
-//    func asyncLoadImage(from imageUrl: String, completed: @escaping (UIImage?) -> Void){
-//        DispatchQueue.global().async{
-//            guard let url = URL(string: imageUrl) else {
-//                completed(nil)
-//                return
-//            }
-//            guard let data = try? Data(contentsOf: url) else {
-//                completed(nil)
-//                return
-//            }
-//
-//            let image = UIImage(data: data)
-//            completed(image)
-//        }
-//    }
