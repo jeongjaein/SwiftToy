@@ -20,27 +20,27 @@ class ViewController: UIViewController {
     func createMVVMButton() {
         let mvvmExButton = UIButton()
         mvvmExButton.setTitle("MVVM", for: .normal)
-        mvvmExButton.setTitleColor(UIColor.gray, for: .normal)
+//        mvvmExButton.setTitleColor(UIColor.gray, for: .normal)
         mvvmExButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        mvvmExButton.backgroundColor = .white
+//        mvvmExButton.backgroundColor = .white
         self.view.addSubview(mvvmExButton)
         mvvmExButton.addTarget(self, action: #selector(mvvmExbuttonAction), for: .touchUpInside)
     }
     func createNotificationButton() {
         let notificationButton = UIButton()
         notificationButton.setTitle("noti", for: .normal)
-        notificationButton.setTitleColor(UIColor.gray, for: .normal)
+//        notificationButton.setTitleColor(UIColor.gray, for: .normal)
         notificationButton.frame = CGRect(x: 0, y: 100, width: 100, height: 100)
-        notificationButton.backgroundColor = .white
+//        notificationButton.backgroundColor = .white
         self.view.addSubview(notificationButton)
         notificationButton.addTarget(self, action: #selector(notificationButtonAction), for: .touchUpInside)
     }
     func createRxSwiftButton() {
         let RxButton = UIButton()
         RxButton.setTitle("RxSwift", for: .normal)
-        RxButton.setTitleColor(UIColor.gray, for: .normal)
+//        RxButton.setTitleColor(UIColor.gray, for: .normal)
         RxButton.frame = CGRect(x: 0, y: 200, width: 100, height: 100)
-        RxButton.backgroundColor = .white
+//        RxButton.backgroundColor = .white
         self.view.addSubview(RxButton)
         RxButton.addTarget(self, action: #selector(RxButtonAction), for: .touchUpInside)
     }
