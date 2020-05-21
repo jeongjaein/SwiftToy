@@ -11,19 +11,20 @@ import RxSwift
 class RxSwiftEx: UIViewController{
     var justButton = UIButton()
     var fromButton = UIButton()
+    var mapButton = UIButton()
     var disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray
         createJustButton()
         createFromButton()
+        createMapButton()
     }
     
     func createJustButton() {
         justButton.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
         justButton.setTitle("just1", for: .normal)
         justButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(justButton)
         justButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         justButton.addTarget(self, action: #selector(justButtonAction), for: .touchUpInside)
     }
@@ -35,6 +36,15 @@ class RxSwiftEx: UIViewController{
         fromButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         fromButton.topAnchor.constraint(equalTo: justButton.bottomAnchor, constant: 0).isActive = true
         fromButton.addTarget(self, action: #selector(fromButtonAction), for: .touchUpInside)
+    }
+    func createMapButton(){
+        mapButton.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
+        mapButton.setTitle("Map1", for: .normal)
+        mapButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(mapButton)
+        mapButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        mapButton.topAnchor.constraint(equalTo: fromButton.bottomAnchor, constant: 0).isActive = true
+        mapButton.addTarget(self, action: #selector(mapButtonAction), for: .touchUpInside)
     }
     
     @objc func justButtonAction(){
@@ -55,6 +65,7 @@ class RxSwiftEx: UIViewController{
     }
     @objc func fromButtonAction(){
         Observable.from(["from1","from2","from3"])
+//            .single() //use single for error test!
             .subscribe{ event in
                 switch event {
                 case .next(let str):
@@ -65,9 +76,17 @@ class RxSwiftEx: UIViewController{
                     break
                 case .completed:
                     print("complited")
-                    break 
+                    break
                 }
         }
+        .disposed(by: disposeBag)
+    }
+    @objc func mapButtonAction(){
+        Observable.from(["첫번째문자열","두우번째문자열"])
+            .map{ $0.count}
+            .subscribe(onNext:{ str in
+                print(str)
+            })
         .disposed(by: disposeBag)
     }
 }
