@@ -18,15 +18,20 @@ class RxSwiftEx: UIViewController{
         //        view.backgroundColor = .black
         
         
-        imageView.frame = CGRect(x: 0, y: 0, width: 500, height: 500)
-        imageView.backgroundColor = .white
-        countLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        imageView.backgroundColor = .red
         view.addSubview(imageView)
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        countLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 500)
+        
         view.addSubview(countLabel)
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true){_ in
             self.counter += 1
             self.countLabel.text = "\(self.counter)"
         }
+        onLoadImage( )
         
         
     }
