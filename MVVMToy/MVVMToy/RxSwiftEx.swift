@@ -10,11 +10,13 @@ import UIKit
 import RxSwift
 class RxSwiftEx: UIViewController{
     var justButton = UIButton()
-    
+    var fromButton = UIButton()
+    var disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray
         createJustButton()
+        createFromButton()
     }
     
     func createJustButton() {
@@ -25,9 +27,48 @@ class RxSwiftEx: UIViewController{
         justButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         justButton.addTarget(self, action: #selector(justButtonAction), for: .touchUpInside)
     }
+    func createFromButton() {
+        fromButton.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
+        fromButton.setTitle("From1", for: .normal)
+        fromButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(fromButton)
+        fromButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        fromButton.topAnchor.constraint(equalTo: justButton.bottomAnchor, constant: 0).isActive = true
+        fromButton.addTarget(self, action: #selector(fromButtonAction), for: .touchUpInside)
+    }
     
     @objc func justButtonAction(){
-        print("clicked justButton!!")
+        Observable.just("just test!")
+            .subscribe{ event in
+                switch event {
+                case .next(let str):
+                    print(str)
+                    break
+                case .error(let err):
+                    break
+                case .completed:
+                    break
+                    
+                }
+        }
+        .disposed(by: disposeBag)
+    }
+    @objc func fromButtonAction(){
+        Observable.from(["from1","from2","from3"])
+            .subscribe{ event in
+                switch event {
+                case .next(let str):
+                    print("nest: \(str)")
+                    break
+                case .error(let err):
+                    print("error: \(err.localizedDescription)")
+                    break
+                case .completed:
+                    print("complited")
+                    break 
+                }
+        }
+        .disposed(by: disposeBag)
     }
 }
 
