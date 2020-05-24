@@ -9,15 +9,18 @@
 import UIKit
 import RxCocoa
 import RxSwift
+//import Then
 
 class RxCocoaEx: UIViewController{
+    
     let screenSize: CGRect = UIScreen.main.bounds
     var emailTextField = UITextField()
     var passWordTextField = UITextField()
     var idValidView = UIView()
     var pwValidView = UIView()
     var loginButton = UIButton()
-    
+//    let test = UIButton().then{
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray

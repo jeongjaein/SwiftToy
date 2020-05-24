@@ -1,0 +1,6 @@
+framework module Pods_MVVMToy {
+  umbrella header "Pods-MVVMToy-umbrella.h"
+
+  export *
+  module * { export * }
+}
