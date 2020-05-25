@@ -15,13 +15,13 @@ class ViewController: UIViewController {
         createMVVMButton()
         createNotificationButton()
         createRxSwiftButton()
-        let rxCocoaExButton = UIButton()
-        rxCocoaExButton.setTitle("RxCocoa", for: .normal)
-        rxCocoaExButton.frame = CGRect(x: 0, y: 300, width: 100, height: 100)
-        view.addSubview(rxCocoaExButton)
-        rxCocoaExButton.addTarget(self, action: #selector(rxCocoaExButtonAction), for: .touchUpInside)
+        createRxCocoa()
+        let snapKitButton = UIButton()
+        snapKitButton.setTitle("SnapKit", for: .normal)
+        snapKitButton.frame = CGRect(x: 0, y: 400, width: 100, height: 100)
+        self.view.addSubview(snapKitButton)
+        snapKitButton.addTarget(self, action: #selector(snapKitButtonAction), for: .touchUpInside)
     }
-    
     func createMVVMButton() {
         let mvvmExButton = UIButton()
         mvvmExButton.setTitle("MVVM", for: .normal)
@@ -49,6 +49,13 @@ class ViewController: UIViewController {
         self.view.addSubview(RxButton)
         RxButton.addTarget(self, action: #selector(RxButtonAction), for: .touchUpInside)
     }
+    func createRxCocoa() {
+        let rxCocoaExButton = UIButton()
+        rxCocoaExButton.setTitle("RxCocoa", for: .normal)
+        rxCocoaExButton.frame = CGRect(x: 0, y: 300, width: 100, height: 100)
+        view.addSubview(rxCocoaExButton)
+        rxCocoaExButton.addTarget(self, action: #selector(rxCocoaExButtonAction), for: .touchUpInside)
+    }
     @objc func mvvmExbuttonAction() {
         let mvvmEx = MVVMEx()
         mvvmEx.modalPresentationStyle = .automatic
@@ -69,6 +76,10 @@ class ViewController: UIViewController {
         rxCocoaEx.modalPresentationStyle = .automatic
         self.present(rxCocoaEx, animated: true, completion: nil)
     }
-    
+    @objc func snapKitButtonAction(){
+        let rxCocoaEx = SnapKitEx()
+        rxCocoaEx.modalPresentationStyle = .automatic
+        self.present(rxCocoaEx, animated: true, completion: nil)
+    }
 }
 

@@ -6,7 +6,7 @@ target 'MVVMToy' do
   use_frameworks!
 
   # Pods for MVVMToy
-  pod 'RxSwift', '~> 4.4.1'
-  pod 'RxCocoa', '~> 4.4.1'
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'SnapKit'
 end

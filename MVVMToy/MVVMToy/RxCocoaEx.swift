@@ -20,8 +20,7 @@ class RxCocoaEx: UIViewController{
     var idValidView = UIView()
     var pwValidView = UIView()
     var loginButton = UIButton()
-//    let test = UIButton().then{
-//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
@@ -36,7 +35,6 @@ class RxCocoaEx: UIViewController{
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         loginButton.topAnchor.constraint(equalTo: passWordTextField.bottomAnchor, constant: 50).isActive = true
-
     }
     func createCheckingPointForEmail() {
         view.addSubview(idValidView)
@@ -64,8 +62,6 @@ class RxCocoaEx: UIViewController{
         emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
         emailTextField.widthAnchor.constraint(equalToConstant: screenSize.width - 100).isActive = true
         emailTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        
     }
     func createPassWordTextField() {
         view.addSubview(passWordTextField)
