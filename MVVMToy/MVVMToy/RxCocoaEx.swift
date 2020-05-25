@@ -35,6 +35,7 @@ class RxCocoaEx: UIViewController{
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         loginButton.topAnchor.constraint(equalTo: passWordTextField.bottomAnchor, constant: 50).isActive = true
+        loginButton.addTarget(self, action: #selector(goToLoginSuccess), for: .touchUpInside)
     }
     func createCheckingPointForEmail() {
         view.addSubview(idValidView)
@@ -82,6 +83,11 @@ class RxCocoaEx: UIViewController{
     }
     @objc func done() {
         dismiss(animated: true, completion: nil)
+    }
+    @objc func goToLoginSuccess(){
+        let rxCocoaExLogin = RxCocoaExLogin()
+        rxCocoaExLogin.modalPresentationStyle = .automatic
+        self.present(rxCocoaExLogin, animated: true, completion: nil)
     }
 }
 

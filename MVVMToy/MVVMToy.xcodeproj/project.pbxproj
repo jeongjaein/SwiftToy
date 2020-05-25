@@ -14,6 +14,7 @@
 		CC15817E246C1E1100CFAB98 /* NotificationEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15817D246C1E1100CFAB98 /* NotificationEx.swift */; };
 		CC1731492476C43E0010D2B0 /* RxCocoaEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1731482476C43E0010D2B0 /* RxCocoaEx.swift */; };
 		CC2E7DD2247C19AD0055293F /* SnapKitEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2E7DD1247C19AD0055293F /* SnapKitEx.swift */; };
+		CC2E7DD4247C1E140055293F /* RxCocoaExLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2E7DD3247C1E140055293F /* RxCocoaExLogin.swift */; };
 		CC5D0BF5246993E700525B46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D0BF4246993E700525B46 /* AppDelegate.swift */; };
 		CC5D0BF7246993E700525B46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D0BF6246993E700525B46 /* SceneDelegate.swift */; };
 		CC5D0BF9246993E700525B46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D0BF8246993E700525B46 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 		CC15817D246C1E1100CFAB98 /* NotificationEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationEx.swift; sourceTree = "<group>"; };
 		CC1731482476C43E0010D2B0 /* RxCocoaEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCocoaEx.swift; sourceTree = "<group>"; };
 		CC2E7DD1247C19AD0055293F /* SnapKitEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitEx.swift; sourceTree = "<group>"; };
+		CC2E7DD3247C1E140055293F /* RxCocoaExLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCocoaExLogin.swift; sourceTree = "<group>"; };
 		CC5D0BF1246993E700525B46 /* MVVMToy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMToy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC5D0BF4246993E700525B46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC5D0BF6246993E700525B46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				CC5D0BF6246993E700525B46 /* SceneDelegate.swift */,
 				CC5D0BF8246993E700525B46 /* ViewController.swift */,
 				CC1731482476C43E0010D2B0 /* RxCocoaEx.swift */,
+				CC2E7DD3247C1E140055293F /* RxCocoaExLogin.swift */,
 				CC902D2F2472ACC9009DBB06 /* RxSwiftEx.swift */,
 				CC5D0BFA246993E700525B46 /* Main.storyboard */,
 				CC15817D246C1E1100CFAB98 /* NotificationEx.swift */,
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC2E7DD4247C1E140055293F /* RxCocoaExLogin.swift in Sources */,
 				CC15817C246BFE1800CFAB98 /* Person.swift in Sources */,
 				CC5D0BF9246993E700525B46 /* ViewController.swift in Sources */,
 				CC15817E246C1E1100CFAB98 /* NotificationEx.swift in Sources */,
