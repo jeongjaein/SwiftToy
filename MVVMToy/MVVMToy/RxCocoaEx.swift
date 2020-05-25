@@ -6,10 +6,11 @@
 //  Copyright © 2020 정재인. All rights reserved.
 //
 
-import UIKit
+
 import RxCocoa
 import RxSwift
-//import Then
+import UIKit
+import SnapKit
 
 class RxCocoaEx: UIViewController{
     
@@ -63,6 +64,8 @@ class RxCocoaEx: UIViewController{
         emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
         emailTextField.widthAnchor.constraint(equalToConstant: screenSize.width - 100).isActive = true
         emailTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        
     }
     func createPassWordTextField() {
         view.addSubview(passWordTextField)

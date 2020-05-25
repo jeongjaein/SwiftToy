@@ -10,9 +10,7 @@
 #endif
 #endif
 
-#import "RxAtomic 2.h"
-#import "RxAtomic.h"
 
-FOUNDATION_EXPORT double RxAtomicVersionNumber;
-FOUNDATION_EXPORT const unsigned char RxAtomicVersionString[];
+FOUNDATION_EXPORT double SnapKitVersionNumber;
+FOUNDATION_EXPORT const unsigned char SnapKitVersionString[];
 
