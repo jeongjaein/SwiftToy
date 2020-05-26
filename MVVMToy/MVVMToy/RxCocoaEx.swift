@@ -21,6 +21,8 @@ class RxCocoaEx: UIViewController{
     var pwValidView = UIView()
     var loginButton = UIButton()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
@@ -30,16 +32,12 @@ class RxCocoaEx: UIViewController{
         createPassWordTextField()
         createCheckingPointForEmail()
         createCheckingPointForPassWord()
-        view.addSubview(loginButton)
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        loginButton.topAnchor.constraint(equalTo: passWordTextField.bottomAnchor, constant: 50).isActive = true
-        loginButton.addTarget(self, action: #selector(goToLoginSuccess), for: .touchUpInside)
+        createLoginButton()
         bindUI()
     }
     func createCheckingPointForEmail() {
         view.addSubview(idValidView)
+        idValidView.layer.cornerRadius = 5
         idValidView.backgroundColor = .red
         idValidView.translatesAutoresizingMaskIntoConstraints = false
         idValidView.leadingAnchor.constraint(equalTo: emailTextField.trailingAnchor, constant: 10).isActive = true
@@ -49,6 +47,7 @@ class RxCocoaEx: UIViewController{
     }
     func createCheckingPointForPassWord() {
         view.addSubview(pwValidView)
+        pwValidView.layer.cornerRadius = 5
         pwValidView.backgroundColor = .red
         pwValidView.translatesAutoresizingMaskIntoConstraints = false
         pwValidView.leadingAnchor.constraint(equalTo: passWordTextField.trailingAnchor, constant: 10).isActive = true
@@ -74,6 +73,15 @@ class RxCocoaEx: UIViewController{
         passWordTextField.widthAnchor.constraint(equalToConstant: screenSize.width - 100).isActive = true
         passWordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
+    func createLoginButton() {
+        view.addSubview(loginButton)
+        loginButton.isEnabled = false
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        loginButton.topAnchor.constraint(equalTo: passWordTextField.bottomAnchor, constant: 50).isActive = true
+        loginButton.addTarget(self, action: #selector(goToLoginSuccess), for: .touchUpInside)
+    }
     func setNavigationBar() {
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 50))
         let navItem = UINavigationItem(title: "LOGIN")
@@ -97,13 +105,29 @@ class RxCocoaEx: UIViewController{
     func checkPasswordValid( _ password: String) -> Bool {
         return password.count > 5
     }
+    //이메일과 비밀번호 모두 valid함수로 확인 후 둘다 true일때 로그인버튼을 활성화 시켜주는 그런느낌이지
     func bindUI(){
-        emailTextField.rx.text
-            .filter{$0 != nil}
-            .map{$0!}
+        emailTextField.rx.text.orEmpty
+            //            .filter{$0 != nil}
+            //            .map{$0!}//optional 언래핑 을 위에 or로 extension에서 제공해줌
             .map(checkEmailValid)
-            .subscribe(onNext: {s in
-                print(s)
+            .subscribe(onNext: {bool in
+                self.idValidView.isHidden = bool
+            })
+            .disposed(by: disposeBag)
+        passWordTextField.rx.text.orEmpty
+            .map(checkPasswordValid)
+            .subscribe(onNext: {bool in
+                self.pwValidView.isHidden = bool
+            })
+            .disposed(by: disposeBag)
+        //두개이상의 옵저버블을 합쳐 하나의 옵저버블로 만들어 버렸다.
+        Observable.combineLatest( emailTextField.rx.text.orEmpty.map(checkEmailValid),
+            passWordTextField.rx.text.orEmpty.map(checkPasswordValid),
+            resultSelector: { s1, s2 in s1 && s2 }
+        )
+            .subscribe(onNext: {b in
+                self.loginButton.isEnabled = b
             })
             .disposed(by: disposeBag)
     }
