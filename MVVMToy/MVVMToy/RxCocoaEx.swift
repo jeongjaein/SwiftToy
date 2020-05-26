@@ -13,7 +13,7 @@ import UIKit
 import SnapKit
 
 class RxCocoaEx: UIViewController{
-    
+    var disposeBag = DisposeBag()
     let screenSize: CGRect = UIScreen.main.bounds
     var emailTextField = UITextField()
     var passWordTextField = UITextField()
@@ -36,6 +36,7 @@ class RxCocoaEx: UIViewController{
         loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         loginButton.topAnchor.constraint(equalTo: passWordTextField.bottomAnchor, constant: 50).isActive = true
         loginButton.addTarget(self, action: #selector(goToLoginSuccess), for: .touchUpInside)
+        bindUI()
     }
     func createCheckingPointForEmail() {
         view.addSubview(idValidView)
@@ -85,9 +86,26 @@ class RxCocoaEx: UIViewController{
         dismiss(animated: true, completion: nil)
     }
     @objc func goToLoginSuccess(){
+        self.view.setNeedsLayout()
         let rxCocoaExLogin = RxCocoaExLogin()
-        rxCocoaExLogin.modalPresentationStyle = .automatic
+        rxCocoaExLogin.modalPresentationStyle = .fullScreen
         self.present(rxCocoaExLogin, animated: true, completion: nil)
+    }
+    func checkEmailValid(_ email: String) -> Bool{
+        return email.contains("@") && email.contains(".")
+    }
+    func checkPasswordValid( _ password: String) -> Bool {
+        return password.count > 5
+    }
+    func bindUI(){
+        emailTextField.rx.text
+            .filter{$0 != nil}
+            .map{$0!}
+            .map(checkEmailValid)
+            .subscribe(onNext: {s in
+                print(s)
+            })
+            .disposed(by: disposeBag)
     }
 }
 

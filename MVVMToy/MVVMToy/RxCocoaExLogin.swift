@@ -15,6 +15,7 @@ class RxCocoaExLogin: UIViewController {
 let screenSize: CGRect = UIScreen.main.bounds
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gray
         setNavigationBar()
         
     }
