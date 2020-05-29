@@ -15,7 +15,6 @@ class NotificationEx: UIViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(dataDownloaded(n:)), name: NSNotification.Name.init(rawValue: "DataDownloaded"), object: nil)
     }
     func createButton() {
-        
         let notiButton = UIButton()
         notiButton.setTitle("MVVM", for: .normal)
         notiButton.setTitleColor(UIColor.gray, for: .normal)

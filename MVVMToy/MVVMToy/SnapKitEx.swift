@@ -35,7 +35,7 @@ class SnapKitEx: UIViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { tap in
                 print(tap)
-                self.firstButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 150).isActive = true
+//                self.firstButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 150).isActive = true
             })
         .disposed(by: disposeBag)
     }
