@@ -6,7 +6,6 @@
 //  Copyright © 2020 정재인. All rights reserved.
 //
 
-
 import RxCocoa
 import RxSwift
 import UIKit
@@ -21,8 +20,6 @@ class RxCocoaEx: UIViewController{
     var pwValidView = UIView()
     var loginButton = UIButton()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
@@ -35,6 +32,7 @@ class RxCocoaEx: UIViewController{
         createLoginButton()
         bindUI()
     }
+    
     func createCheckingPointForEmail() {
         view.addSubview(idValidView)
         idValidView.layer.cornerRadius = 5
@@ -45,6 +43,7 @@ class RxCocoaEx: UIViewController{
         idValidView.widthAnchor.constraint(equalToConstant: 10).isActive = true
         idValidView.heightAnchor.constraint(equalToConstant: 10).isActive = true
     }
+    
     func createCheckingPointForPassWord() {
         view.addSubview(pwValidView)
         pwValidView.layer.cornerRadius = 5
@@ -55,6 +54,7 @@ class RxCocoaEx: UIViewController{
         pwValidView.widthAnchor.constraint(equalToConstant: 10).isActive = true
         pwValidView.heightAnchor.constraint(equalToConstant: 10).isActive = true
     }
+    
     func createEmailTextField() {
         view.addSubview(emailTextField)
         emailTextField.backgroundColor = .gray
@@ -64,6 +64,7 @@ class RxCocoaEx: UIViewController{
         emailTextField.widthAnchor.constraint(equalToConstant: screenSize.width - 100).isActive = true
         emailTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
+    
     func createPassWordTextField() {
         view.addSubview(passWordTextField)
         passWordTextField.backgroundColor = .gray
@@ -73,6 +74,7 @@ class RxCocoaEx: UIViewController{
         passWordTextField.widthAnchor.constraint(equalToConstant: screenSize.width - 100).isActive = true
         passWordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
+    
     func createLoginButton() {
         view.addSubview(loginButton)
         loginButton.isEnabled = false
@@ -82,6 +84,7 @@ class RxCocoaEx: UIViewController{
         loginButton.topAnchor.constraint(equalTo: passWordTextField.bottomAnchor, constant: 50).isActive = true
         loginButton.addTarget(self, action: #selector(goToLoginSuccess), for: .touchUpInside)
     }
+    
     func setNavigationBar() {
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 50))
         let navItem = UINavigationItem(title: "LOGIN")
@@ -90,21 +93,26 @@ class RxCocoaEx: UIViewController{
         navBar.setItems([navItem], animated: false)
         self.view.addSubview(navBar)
     }
+    
     @objc func done() {
         dismiss(animated: true, completion: nil)
     }
+    
     @objc func goToLoginSuccess(){
         self.view.setNeedsLayout()
         let rxCocoaExLogin = RxCocoaExLogin()
         rxCocoaExLogin.modalPresentationStyle = .fullScreen
         self.present(rxCocoaExLogin, animated: true, completion: nil)
     }
+    
     func checkEmailValid(_ email: String) -> Bool{
         return email.contains("@") && email.contains(".")
     }
+    
     func checkPasswordValid( _ password: String) -> Bool {
         return password.count > 5
     }
+    
     //이메일과 비밀번호 모두 valid함수로 확인 후 둘다 true일때 로그인버튼을 활성화 시켜주는 그런느낌이지
     func bindUI(){
         //input : 아이디 비번 입력, 비번 입력
@@ -114,11 +122,13 @@ class RxCocoaEx: UIViewController{
         let pwInputOb = passWordTextField.rx.text.orEmpty.asObservable()
         let pwValidOb = pwInputOb.map(checkPasswordValid)
         
-        //output : 불린, 로그인번튼이네이블
+        //output : 불린, 로그인버튼이네이블
         emailValidOb.subscribe(onNext: {b in self.idValidView.isHidden = b})
             .disposed(by: disposeBag)
+        
         pwValidOb.subscribe(onNext: {b in self.pwValidView.isHidden = b})
             .disposed(by: disposeBag)
+        
         Observable.combineLatest(emailValidOb, pwValidOb, resultSelector: { $0 && $1 })
             .subscribe(onNext: {b in
                 if b{
@@ -131,6 +141,7 @@ class RxCocoaEx: UIViewController{
                 }
             })
             .disposed(by: disposeBag)
+    }
         //        emailTextField.rx.text.orEmpty
         //            //            .filter{$0 != nil}
         //            //            .map{$0!}//optional 언래핑 을 위에 or로 extension에서 제공해줌
@@ -163,7 +174,4 @@ class RxCocoaEx: UIViewController{
         //                }
         //            })
         //            .disposed(by: disposeBag)
-    }
 }
-
-

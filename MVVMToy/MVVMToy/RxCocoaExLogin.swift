@@ -11,7 +11,6 @@ import RxSwift
 import UIKit
 import SnapKit
 
-
 class RxCocoaExLogin: UIViewController {
     
     let navItem = UINavigationItem(title: "LOGIN Success")
@@ -19,7 +18,6 @@ class RxCocoaExLogin: UIViewController {
     var navBar = UINavigationBar()
     var successImage = UIImageView()
     var changeButton = UIButton()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +32,6 @@ class RxCocoaExLogin: UIViewController {
         changeButton.centerXAnchor.constraint(lessThanOrEqualTo: successImage.centerXAnchor, constant: 0).isActive = true
         changeButton.centerYAnchor.constraint(lessThanOrEqualTo: successImage.centerYAnchor, constant: 0).isActive = true
         changeButton.backgroundColor = .lightGray
-        
     }
     
     func setNavigationBar() {
