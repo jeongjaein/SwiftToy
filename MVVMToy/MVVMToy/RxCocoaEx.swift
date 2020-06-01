@@ -19,6 +19,7 @@ class RxCocoaEx: UIViewController{
     var idValidView = UIView()
     var pwValidView = UIView()
     var loginButton = UIButton()
+//    var viewModel = 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,63 +116,79 @@ class RxCocoaEx: UIViewController{
     
     //이메일과 비밀번호 모두 valid함수로 확인 후 둘다 true일때 로그인버튼을 활성화 시켜주는 그런느낌이지
     func bindUI(){
-        //input : 아이디 비번 입력, 비번 입력
-        let emailInputOb = emailTextField.rx.text.orEmpty.asObservable()
-        let emailValidOb = emailInputOb.map(checkEmailValid)
-        
-        let pwInputOb = passWordTextField.rx.text.orEmpty.asObservable()
-        let pwValidOb = pwInputOb.map(checkPasswordValid)
-        
-        //output : 불린, 로그인버튼이네이블
-        emailValidOb.subscribe(onNext: {b in self.idValidView.isHidden = b})
-            .disposed(by: disposeBag)
-        
-        pwValidOb.subscribe(onNext: {b in self.pwValidView.isHidden = b})
-            .disposed(by: disposeBag)
-        
-        Observable.combineLatest(emailValidOb, pwValidOb, resultSelector: { $0 && $1 })
-            .subscribe(onNext: {b in
-                if b{
-                    self.loginButton.isEnabled = b
-                    self.loginButton.setTitle("Login", for: .normal)
-                }
-                else{
-                    self.loginButton.isEnabled = b
-                    self.loginButton.setTitle("fill data", for: .normal )
-                }
-            })
-            .disposed(by: disposeBag)
+//        idField.rx.text.orEmpty
+//            .subscribe(onNext: email in
+//                self.rx)
     }
-        //        emailTextField.rx.text.orEmpty
-        //            //            .filter{$0 != nil}
-        //            //            .map{$0!}//optional 언래핑 을 위에 or로 extension에서 제공해줌
-        //            .map(checkEmailValid)
-        //            .subscribe(onNext: {bool in
-        //                self.idValidView.isHidden = bool
-        //            })
-        //            .disposed(by: disposeBag)
-        //        passWordTextField.rx.text.orEmpty
-        //            .map(checkPasswordValid)
-        //            .subscribe(onNext: {bool in
-        //                self.pwValidView.isHidden = bool
-        //            })
-        //            .disposed(by: disposeBag)
-        //        //두개이상의 옵저버블을 합쳐 하나의 옵저버블로 만들어 버렸다.
-        //        Observable.combineLatest( emailTextField.rx.text.orEmpty.map(checkEmailValid),
-        //            passWordTextField.rx.text.orEmpty.map(checkPasswordValid),
-        //            resultSelector: { s1, s2 in s1 && s2 }
-        //        )
-        //            .subscribe(onNext: {b in
-        //                print(b)
-        //
-        //                if b{
-        //                    self.loginButton.setTitle("Login", for: .normal)
-        ////                    self.loginButton.setTitleColor(.green, for: .highlighted)
-        //                    self.loginButton.isEnabled = b
-        //                }
-        //                else{
-        //                    self.loginButton.setTitle("fill the data", for: .normal)
-        //                }
-        //            })
-        //            .disposed(by: disposeBag)
+        
 }
+
+
+
+
+//second bindUI func
+//func bindUI(){
+          //input : 아이디 비번 입력, 비번 입력
+    //        let emailInputOb = emailTextField.rx.text.orEmpty.asObservable()
+    //        let emailValidOb = emailInputOb.map(checkEmailValid)
+    //
+    //        let pwInputOb = passWordTextField.rx.text.orEmpty.asObservable()
+    //        let pwValidOb = pwInputOb.map(checkPasswordValid)
+    //
+    //        //output : 불린, 로그인버튼이네이블
+    //        emailValidOb.subscribe(onNext: {b in self.idValidView.isHidden = b})
+    //            .disposed(by: disposeBag)
+    //
+    //        pwValidOb.subscribe(onNext: {b in self.pwValidView.isHidden = b})
+    //            .disposed(by: disposeBag)
+    //
+    //        Observable.combineLatest(emailValidOb, pwValidOb, resultSelector: { $0 && $1 })
+    //            .subscribe(onNext: {b in
+    //                if b{
+    //                    self.loginButton.isEnabled = b
+    //                    self.loginButton.setTitle("Login", for: .normal)
+    //                }
+    //                else{
+    //                    self.loginButton.isEnabled = b
+    //                    self.loginButton.setTitle("fill data", for: .normal )
+    //                }
+    //            })
+    //            .disposed(by: disposeBag)
+//}
+
+
+//first bindUI func
+//func bindUI(){
+//        emailTextField.rx.text.orEmpty
+//            //            .filter{$0 != nil}
+//            //            .map{$0!}//optional 언래핑 을 위에 or로 extension에서 제공해줌
+//            .map(checkEmailValid)
+//            .subscribe(onNext: {bool in
+//                self.idValidView.isHidden = bool
+//            })
+//            .disposed(by: disposeBag)
+//        passWordTextField.rx.text.orEmpty
+//            .map(checkPasswordValid)
+//            .subscribe(onNext: {bool in
+//                self.pwValidView.isHidden = bool
+//            })
+//            .disposed(by: disposeBag)
+//        //두개이상의 옵저버블을 합쳐 하나의 옵저버블로 만들어 버렸다.
+//        Observable.combineLatest( emailTextField.rx.text.orEmpty.map(checkEmailValid),
+//            passWordTextField.rx.text.orEmpty.map(checkPasswordValid),
+//            resultSelector: { s1, s2 in s1 && s2 }
+//        )
+//            .subscribe(onNext: {b in
+//                print(b)
+//
+//                if b{
+//                    self.loginButton.setTitle("Login", for: .normal)
+////                    self.loginButton.setTitleColor(.green, for: .highlighted)
+//                    self.loginButton.isEnabled = b
+//                }
+//                else{
+//                    self.loginButton.setTitle("fill the data", for: .normal)
+//                }
+//            })
+//            .disposed(by: disposeBag)
+//}

@@ -9,11 +9,20 @@
 import RxSwift
 import UIKit
 import Foundation
+import RxCocoa
 
 class RxCocoaExViewModel {
+    
+    let emailText = BehaviorSubject(value: "")
 
     let isEmailValid = BehaviorSubject(value: false)
     let isPasswordValid = BehaviorSubject(value: false)
+    
+    init(){
+        _ = emailText.distinctUntilChanged()
+        .map(checkEmailValid)
+            .bind(to: isEmailValid)
+    }
     
     func setEmailText(_ email: String) {
         let isValid = checkEmailValid(email)

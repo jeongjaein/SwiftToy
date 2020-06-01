@@ -68,7 +68,6 @@
 				CC158179246BFDEF00CFAB98 /* ViewModel */,
 				CC158178246BFDE800CFAB98 /* Model */,
 				CC158177246BFDDD00CFAB98 /* View */,
-				CC384C0924841729005F34AE /* RxCocoaExViewModel.swift */,
 			);
 			path = MVVM1;
 			sourceTree = "<group>";
@@ -124,6 +123,7 @@
 				CC5D0BF6246993E700525B46 /* SceneDelegate.swift */,
 				CC5D0BF8246993E700525B46 /* ViewController.swift */,
 				CC1731482476C43E0010D2B0 /* RxCocoaEx.swift */,
+				CC384C0924841729005F34AE /* RxCocoaExViewModel.swift */,
 				CC2E7DD3247C1E140055293F /* RxCocoaExLogin.swift */,
 				CC902D2F2472ACC9009DBB06 /* RxSwiftEx.swift */,
 				CC5D0BFA246993E700525B46 /* Main.storyboard */,
