@@ -42,7 +42,7 @@ class MeetingListViewController : UIViewController{
         self.myTableView.delegate = self
         self.myTableView.dataSource = self
         self.view.addSubview(self.myTableView)
-        self.myTableView.translatesAutoresizingMaskIntoConstraints = false //이게 아마 레이아웃 내가 정할테니 신경끄라는 코드
+        self.myTableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
                                                    attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top,
                                                    multiplier: 1.0, constant: 0))
@@ -78,8 +78,6 @@ class MeetingListViewController : UIViewController{
     
     @objc func toIndicateAction() {
             let indicatorEx = IndicatorEx()
-    //        makeMeetingViewController.sendDelegate = self
-    //        let navigation = UINavigationController(rootViewController: indicatorEx)
             indicatorEx.modalPresentationStyle = .overFullScreen
             self.navigationController?.present(indicatorEx, animated: true, completion: nil)
         }

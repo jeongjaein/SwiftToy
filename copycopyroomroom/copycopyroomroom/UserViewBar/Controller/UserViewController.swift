@@ -66,9 +66,6 @@ class UserViewController : UIViewController{
         navigationItem.title = "test"
         //이건머지
         self.definesPresentationContext = true
-        
-        
-        
         //테이블 뷰 하단에 빈셀 표시 막기
         self.myTableView.tableFooterView = UIView(frame: .zero)
         //이건멀까
@@ -109,28 +106,19 @@ extension UserViewController : UITableViewDataSource{
             return items.count
         }
     }
-    
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = myTableView.dequeueReusableCell(withIdentifier: "UserTableViewCell", for: indexPath) as! UserTableViewCell
-        
-        
         if searchController.isActive{
             cell.imageView!.image = searchResults[indexPath.row].UIImage
             cell.textLabel?.text = searchResults[indexPath.row].name
         }else{
             cell.imageView!.image = items[indexPath.row].UIImage
             cell.textLabel?.text = items[indexPath.row].name
-            
         }
         return cell
-        
     }
     //    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     //}//UISwipeActionsConfiguration은 Table Row를 스와이프 할 때 수행 할 작업 집합(Set)
-    
-    
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title:  "차단", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
@@ -138,13 +126,8 @@ extension UserViewController : UITableViewDataSource{
         })
         //            return UISwipeActionsConfiguration(actions:[deleteAction,shareAction])
         return UISwipeActionsConfiguration(actions:[deleteAction])
-    }//UISwipeActionsConfiguration은 Table Row를 스와이프 할 때 수행 할 작업 집합(Set)
-    
-    
-    
-    
-    
-    
+    }
+    //UISwipeActionsConfiguration은 Table Row를 스와이프 할 때 수행 할 작업 집합(Set)
 }
 
 
@@ -152,24 +135,19 @@ extension UserViewController : UITableViewDelegate{
     //각셀 클릭시
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let popupVC = ProfileDetailViewController()
-        
-        
         popupVC.profilePass(name: items[indexPath.row].name, Image: items[indexPath.row].UIImage)
-        
         self.definesPresentationContext = true
         //overFullScreen으로 해야 다 가려지면서 alpha값 조정 가능 그냥 FullScreen 아님 //currentcontext 는 탭바랑 네비게이션바 못가림
         popupVC.modalPresentationStyle = .overFullScreen
         popupVC.modalTransitionStyle = .crossDissolve
         self.present(popupVC, animated: true, completion: nil)
     }
-    
 }
-
 extension UserViewController : UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         if(searchController.searchBar.text?.count)!>0{
             searchResults.removeAll(keepingCapacity: false)
-            searchResults = items.filter { $0.name.localizedCaseInsensitiveContains(searchController.searchBar.text!) }//이건ts이런식으로 쳐도 test가 나옴
+            searchResults = items.filter { $0.name.localizedCaseInsensitiveContains(searchController.searchBar.text!) } //이건ts이런식으로 쳐도 test가 나옴
             //searchResults = items.filter { $0.name.localizedStandardContains(searchController.searchBar.text!) }//이건 순서대로 쳐야 나옴 뭘로할지는 고민고민
             myTableView.reloadData()
         }else{

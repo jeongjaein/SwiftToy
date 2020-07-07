@@ -57,29 +57,28 @@ class ViewController: UIViewController {
         rxCocoaExButton.addTarget(self, action: #selector(rxCocoaExButtonAction), for: .touchUpInside)
     }
     @objc func mvvmExbuttonAction() {
-        let mvvmEx = MVVMEx()
-        mvvmEx.modalPresentationStyle = .automatic
-        self.present(mvvmEx, animated: true, completion: nil)
+//        let mvvmEx = MVVMEx()
+//        mvvmEx.modalPresentationStyle = .automatic
+//        self.present(mvvmEx, animated: true, completion: nil)
     }
     @objc func notificationButtonAction(){
-        let notificationEx = NotificationEx()
-        notificationEx.modalPresentationStyle = .automatic
-        self.present(notificationEx, animated: true, completion: nil)
+//        let notificationEx = NotificationEx()
+//        notificationEx.modalPresentationStyle = .automatic
+//        self.present(notificationEx, animated: true, completion: nil)
     }
     @objc func RxButtonAction(){
-        let  rxSwiftEx = RxSwiftEx()
-        rxSwiftEx.modalPresentationStyle = .automatic
-        self.present(rxSwiftEx, animated: true, completion: nil)
+//        let  rxSwiftEx = RxSwiftEx()
+//        rxSwiftEx.modalPresentationStyle = .automatic
+//        self.present(rxSwiftEx, animated: true, completion: nil)
     }
     @objc func rxCocoaExButtonAction(){
-        let rxCocoaEx = RxCocoaEx()
-        rxCocoaEx.modalPresentationStyle = .automatic
-        self.present(rxCocoaEx, animated: true, completion: nil)
+//        let rxCocoaEx = RxCocoaEx()
+//        rxCocoaEx.modalPresentationStyle = .automatic
+//        self.present(rxCocoaEx, animated: true, completion: nil)
     }
     @objc func snapKitButtonAction(){
-        let rxCocoaEx = SnapKitEx()
-        rxCocoaEx.modalPresentationStyle = .automatic
-        self.present(rxCocoaEx, animated: true, completion: nil)
+//        let rxCocoaEx = SnapKi
+        animated: true, completion: nil)
     }
 }
 

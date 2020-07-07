@@ -28,14 +28,10 @@ class ProfileDetailViewController : UIViewController{
         //backgroundView set
         view.addSubview(backgroundView)
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
-        
         backgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         backgroundView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         backgroundView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         backgroundView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-        
-        
-        
         
         //userprofileimage setup
         backgroundView.addSubview(userProfileImage)
@@ -44,8 +40,6 @@ class ProfileDetailViewController : UIViewController{
         userProfileImage.heightAnchor.constraint(equalToConstant: 300).isActive = true
         userProfileImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         userProfileImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
-        
         
         //dismiss gesture set
         let gesture = UITapGestureRecognizer(target: self, action: #selector(Dismiss(_:)))

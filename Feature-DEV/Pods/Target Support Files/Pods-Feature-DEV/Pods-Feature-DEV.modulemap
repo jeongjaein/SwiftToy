@@ -1,0 +1,6 @@
+framework module Pods_Feature_DEV {
+  umbrella header "Pods-Feature-DEV-umbrella.h"
+
+  export *
+  module * { export * }
+}
