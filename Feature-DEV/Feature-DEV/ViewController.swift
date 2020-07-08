@@ -10,28 +10,31 @@ import UIKit
 import SnapKit
 import Then
 class ViewController: UIViewController {
-    let navigationTitleButton = UIButton()
+    let loadingAnimationButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationTitleButtonSet()
+        loadingAnimationButtonSet()
     }
-    func navigationTitleButtonSet() {
-        navigationTitleButton.do {
+    func loadingAnimationButtonSet() {
+        loadingAnimationButton.do {
             view.addSubview($0)
-            $0.backgroundColor = .lightGray
-            $0.setTitle("NavigationTitleAnimation", for: .normal)
-            $0.addTarget(self, action: #selector(buttonAction), for: .touchDown)
+//            $0.backgroundColor = .lightGray
+            $0.setTitle("Loading Animation", for: .normal)
+            $0.setTitleColor(UIColor(named: "default"), for: .normal)
+            $0.addTarget(self, action: #selector(loadingAnimationButtonAction), for: .touchDown)
         }
-        navigationTitleButton.snp.makeConstraints{
+        loadingAnimationButton.snp.makeConstraints{
             $0.width.equalTo(300)
             $0.height.equalTo(30)
             $0.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX)
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
     }
-    @objc func buttonAction(sender: UIButton!) {
-        print("Button tapped")
+    @objc func loadingAnimationButtonAction(sender: UIButton!) {
+        let loadingAnimationViewController = LoadingAnimationViewController()
+        loadingAnimationViewController.modalPresentationStyle = .automatic
+        self.present(loadingAnimationViewController, animated: true, completion: nil)
     }
 }
 
